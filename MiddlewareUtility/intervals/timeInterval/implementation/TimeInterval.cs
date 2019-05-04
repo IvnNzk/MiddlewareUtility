@@ -6,6 +6,7 @@ namespace MiddlewareUtility.intervals.timeInterval.implementation
     {
         public TimeInterval()
         {
+            throw new ArgumentException("TimeInterval instance should create by constructor with parameters");
         }
 
         public TimeInterval(DateTime dateStart, DateTime dateEnd)
