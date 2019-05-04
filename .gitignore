@@ -1,0 +1,41 @@
+# Visual Studio 2015 cache/options directory
+.vs/
+
+#RIDER
+.idea
+
+#USER-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+#USERS Backup
+[Bb]ackup
+[Bb]ackup1
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+#UPGRADELog and others
+UpgradeLog.htm
+UpgradeLog[1-9].*
+UpgradeLog.*
+
+_UpgradeReport_Files
+
+#CLASS DIAGRAM FILES
+*.cd
+
+packages/
+
+StyleCop.Cache
