@@ -4,7 +4,7 @@ namespace MiddlewareUtility.intervals.timeInterval
 
     public interface ITimeInterval
     {
-        DateTime DateTimeStart { get; set; }
-        DateTime DateTimeEnd { get; set; }
+        DateTime DateTimeStart { get;  }
+        DateTime DateTimeEnd { get; }
     }
 }

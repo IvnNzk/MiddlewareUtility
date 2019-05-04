@@ -15,7 +15,7 @@ namespace MiddlewareUtility.intervals.timeInterval.implementation
             DateTimeEnd = dateEnd;
         }
 
-        public DateTime DateTimeStart { get; set; }
-        public DateTime DateTimeEnd { get; set; }
+        public DateTime DateTimeStart { get; }
+        public DateTime DateTimeEnd { get; }
     }
 }

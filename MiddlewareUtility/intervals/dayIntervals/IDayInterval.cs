@@ -4,6 +4,6 @@ namespace MiddlewareUtility.intervals.dayIntervals
 
     public interface IDayInterval : ITimeInterval
     {
-        int DayDiff { get; set; }
+        int DayDiff { get; }
     }
 }

@@ -23,19 +23,19 @@ namespace MiddlewareUtility.intervals.dayIntervals.implementation
         public DateTime DateTimeStart
         {
             get => _dateStart;
-            set => _dateStart = value;
+            private set => _dateStart = value;
         }
 
         public DateTime DateTimeEnd
         {
             get => _dateEnd;
-            set => _dateEnd = value;
+            private set=> _dateEnd = value;
         }
 
         public int DayDiff
         {
             get => _dayDiff;
-            set => _dayDiff = value;
+            private set => _dayDiff = value;
         }
 
         public override string ToString() => $"DayInterval {_dateStart}-{_dateEnd}";
