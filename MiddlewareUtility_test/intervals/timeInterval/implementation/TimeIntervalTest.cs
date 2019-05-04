@@ -1,4 +1,4 @@
-namespace MiddlewareUtility_test.intervals.timeInterval
+namespace MiddlewareUtility_test.intervals.timeInterval.implementation
 {
     using System;
     using MiddlewareUtility.intervals.timeInterval.implementation;
