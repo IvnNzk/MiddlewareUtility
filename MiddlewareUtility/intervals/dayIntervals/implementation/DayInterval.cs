@@ -10,7 +10,7 @@ namespace MiddlewareUtility.intervals.dayIntervals.implementation
 
         public DayInterval()
         {
-            throw new NotImplementedException("DayInterval instance should create by constructor with parameters");
+            throw new ArgumentException("DayInterval instance should create by constructor with parameters");
         }
 
         public DayInterval(DateTime dateStart, DateTime dateEnd, int dayDiff)
