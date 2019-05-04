@@ -41,9 +41,18 @@
     <Compile Include="intervals\dayIntervals\IDayInterval.cs" />
     <Compile Include="intervals\dayIntervals\IDayIntervalFabric.cs" />
     <Compile Include="intervals\dayIntervals\implementation\DayInterval.cs" />
+    <Compile Include="intervals\dayIntervals\implementation\DayIntervalFabric.cs" />
     <Compile Include="intervals\timeInterval\implementation\TimeInterval.cs" />
+    <Compile Include="intervals\timeInterval\implementation\TimeIntervalFabric.cs" />
     <Compile Include="intervals\timeInterval\ITimeInterval.cs" />
+    <Compile Include="intervals\timeInterval\ITimeIntervalFabric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoggerLib\LoggerLib.csproj">
+      <Project>{01362903-e104-4255-ba7c-efcd24cb2714}</Project>
+      <Name>LoggerLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

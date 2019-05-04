@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LoggerLib\LoggerLib.csproj">
+      <Project>{01362903-e104-4255-ba7c-efcd24cb2714}</Project>
+      <Name>LoggerLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MiddlewareUtility\MiddlewareUtility.csproj">
       <Project>{be19f8bd-eb4e-4fce-a0f8-dd3e7a9fed38}</Project>
       <Name>MiddlewareUtility</Name>
