@@ -38,6 +38,6 @@ namespace MiddlewareUtility.intervals.dayIntervals.implementation
             set => _dayDiff = value;
         }
 
-        public override string ToString() => $"DayInterval {_dateStart}-{DateTimeEnd}";
+        public override string ToString() => $"DayInterval {_dateStart}-{_dateEnd}";
     }
 }
