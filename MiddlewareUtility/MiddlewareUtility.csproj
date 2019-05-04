@@ -39,7 +39,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="intervals\dayIntervals\IDayInterval.cs" />
+    <Compile Include="intervals\dayIntervals\IDayIntervalFabric.cs" />
     <Compile Include="intervals\dayIntervals\implementation\DayInterval.cs" />
+    <Compile Include="intervals\timeInterval\implementation\TimeInterval.cs" />
+    <Compile Include="intervals\timeInterval\ITimeInterval.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

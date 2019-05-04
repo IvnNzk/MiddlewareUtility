@@ -12,7 +12,5 @@ namespace MiddlewareUtility_test.intervals.dayIntervals.implementation
         {
             Assert.Catch<ArgumentException>(() => new DayInterval());
         }
-        
-        
     }
 }

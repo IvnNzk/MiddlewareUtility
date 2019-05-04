@@ -1,5 +1,4 @@
-
-namespace MiddlewareUtility.intervals.dayIntervals
+namespace MiddlewareUtility.intervals.timeInterval
 {
     using System;
 

@@ -1,11 +1,9 @@
-using System;
-
 namespace MiddlewareUtility.intervals.dayIntervals
 {
-    public interface IDayInterval
+    using MiddlewareUtility.intervals.timeInterval;
+
+    public interface IDayInterval : ITimeInterval
     {
-        DateTime DateTimeStart { get; set; }
-        DateTime DateTimeEnd { get; set; }
         int DayDiff { get; set; }
     }
 }
