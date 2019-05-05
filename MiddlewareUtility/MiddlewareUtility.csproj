@@ -47,8 +47,14 @@
     <Compile Include="intervals\timeInterval\ITimeInterval.cs" />
     <Compile Include="intervals\timeInterval\ITimeIntervalFabric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="realTimeData\pointElement\IPointElement.cs" />
+    <Compile Include="realTimeData\pointElement\IPointElementFabric.cs" />
+    <Compile Include="realTimeData\pointElement\PointBoundaryType.cs" />
+    <Compile Include="realTimeData\pointElement\PointRetrievalMode.cs" />
     <Compile Include="realTimeData\pointTime\IPointTimesStampFabric.cs" />
     <Compile Include="realTimeData\pointTime\IPointTimeStamp.cs" />
+    <Compile Include="realTimeData\pointValue\IPointValue.cs" />
+    <Compile Include="realTimeData\pointValue\IPointValueFabric.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LoggerLib\LoggerLib.csproj">
