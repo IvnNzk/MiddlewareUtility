@@ -55,6 +55,10 @@
     <Compile Include="realTimeData\pointTime\IPointTimeStamp.cs" />
     <Compile Include="realTimeData\pointValue\IPointValue.cs" />
     <Compile Include="realTimeData\pointValue\IPointValueFabric.cs" />
+    <Compile Include="realTimeData\tagAbstraction\tagElement\implementation\TagElement.cs" />
+    <Compile Include="realTimeData\tagAbstraction\tagElement\ITagElement.cs" />
+    <Compile Include="realTimeData\tagAbstraction\tagValue\implementation\TagValue.cs" />
+    <Compile Include="realTimeData\tagAbstraction\tagValue\ITagValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LoggerLib\LoggerLib.csproj">

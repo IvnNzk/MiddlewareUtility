@@ -8,5 +8,7 @@ namespace MiddlewareUtility.realTimeData.pointValue
         DateTime Timestamp { get; }
         bool IsGood { get; }
         Type ValueType { get; }
+
+        string ErrorMessage { get; }
     }
 }
