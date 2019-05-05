@@ -4,6 +4,7 @@ namespace MiddlewareUtility.intervals.dayIntervals
 
     public interface IDayIntervalFabric
     {
-        IDayInterval GetDayIntervalByTime(DateTime time);
+        IDayInterval GetDayIntervalByUtcTime(DateTime time);
+        int DayDiff { get; }
     }
 }

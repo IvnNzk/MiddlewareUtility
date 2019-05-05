@@ -42,6 +42,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="intervals\dayIntervals\implementation\DayIntervalFabricBasicTest.cs" />
+    <Compile Include="intervals\dayIntervals\implementation\DayIntervalFabricTestIntervalsFunctions.cs" />
     <Compile Include="intervals\dayIntervals\implementation\DayIntervalTest.cs" />
     <Compile Include="intervals\timeInterval\implementation\TimeIntervalTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

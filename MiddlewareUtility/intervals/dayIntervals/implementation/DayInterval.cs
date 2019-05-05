@@ -6,18 +6,25 @@ namespace MiddlewareUtility.intervals.dayIntervals.implementation
     {
         private DateTime _dateStart;
         private DateTime _dateEnd;
-        private int _dayDiff;
+        private TimeZoneInfo _timeZone;
 
         public DayInterval()
         {
             throw new ArgumentException("DayInterval instance should create by constructor with parameters");
         }
 
-        public DayInterval(DateTime dateStart, DateTime dateEnd, int dayDiff)
+        public DayInterval(DateTime dateStart, DateTime dateEnd)
         {
             _dateStart = dateStart;
             _dateEnd = dateEnd;
-            _dayDiff = _dayDiff;
+            _timeZone = TimeZoneInfo.Local;
+        }
+
+        public DayInterval(DateTime dateStart, DateTime dateEnd, TimeZoneInfo timeZone)
+        {
+            _dateStart = dateStart;
+            _dateEnd = dateEnd;
+            _timeZone = timeZone;
         }
 
         public DateTime DateTimeStart
@@ -29,13 +36,13 @@ namespace MiddlewareUtility.intervals.dayIntervals.implementation
         public DateTime DateTimeEnd
         {
             get => _dateEnd;
-            private set=> _dateEnd = value;
+            private set => _dateEnd = value;
         }
 
-        public int DayDiff
+        public TimeZoneInfo CurrentTimeZoneInfo
         {
-            get => _dayDiff;
-            private set => _dayDiff = value;
+            get => _timeZone;
+            private set => _timeZone = value;
         }
 
         public override string ToString() => $"DayInterval {_dateStart}-{_dateEnd}";

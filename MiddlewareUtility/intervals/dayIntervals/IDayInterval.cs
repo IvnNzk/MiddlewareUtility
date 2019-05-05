@@ -1,9 +1,10 @@
 namespace MiddlewareUtility.intervals.dayIntervals
 {
+    using System;
     using MiddlewareUtility.intervals.timeInterval;
 
     public interface IDayInterval : ITimeInterval
     {
-        int DayDiff { get; }
+        TimeZoneInfo CurrentTimeZoneInfo { get; }
     }
 }
