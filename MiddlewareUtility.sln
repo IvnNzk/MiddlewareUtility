@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddlewareUtility_test", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddlewareUtility", "MiddlewareUtility\MiddlewareUtility.csproj", "{BE19F8BD-EB4E-4FCE-A0F8-DD3E7A9FED38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerLib", "LoggerLib\LoggerLib.csproj", "{01362903-E104-4255-BA7C-EFCD24CB2714}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +18,5 @@ Global
 		{BE19F8BD-EB4E-4FCE-A0F8-DD3E7A9FED38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE19F8BD-EB4E-4FCE-A0F8-DD3E7A9FED38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE19F8BD-EB4E-4FCE-A0F8-DD3E7A9FED38}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01362903-E104-4255-BA7C-EFCD24CB2714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01362903-E104-4255-BA7C-EFCD24CB2714}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01362903-E104-4255-BA7C-EFCD24CB2714}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01362903-E104-4255-BA7C-EFCD24CB2714}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

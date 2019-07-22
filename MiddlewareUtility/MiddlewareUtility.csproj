@@ -46,6 +46,8 @@
     <Compile Include="intervals\timeInterval\implementation\TimeIntervalFabric.cs" />
     <Compile Include="intervals\timeInterval\ITimeInterval.cs" />
     <Compile Include="intervals\timeInterval\ITimeIntervalFabric.cs" />
+    <Compile Include="Logger\DefaultLogger.cs" />
+    <Compile Include="Logger\IUtilityLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="realTimeData\pointElement\IPointElement.cs" />
     <Compile Include="realTimeData\pointElement\IPointElementFabric.cs" />
