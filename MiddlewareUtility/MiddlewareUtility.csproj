@@ -32,12 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Json" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalibrationTable\CalibrationTable.cs" />
+    <Compile Include="CalibrationTable\CalibrationTableFactory.cs" />
+    <Compile Include="CalibrationTable\Exceptions\CalibrationTableException.cs" />
+    <Compile Include="CalibrationTable\TableRow.cs" />
     <Compile Include="intervals\dayIntervals\IDayInterval.cs" />
     <Compile Include="intervals\dayIntervals\IDayIntervalFabric.cs" />
     <Compile Include="intervals\dayIntervals\implementation\DayInterval.cs" />
