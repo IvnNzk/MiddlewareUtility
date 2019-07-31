@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MiddlewareUtility</RootNamespace>
     <AssemblyName>MiddlewareUtility</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,29 +43,41 @@
     <Compile Include="CalibrationTable\CalibrationTableFactory.cs" />
     <Compile Include="CalibrationTable\Exceptions\CalibrationTableException.cs" />
     <Compile Include="CalibrationTable\TableRow.cs" />
-    <Compile Include="intervals\dayIntervals\IDayInterval.cs" />
-    <Compile Include="intervals\dayIntervals\IDayIntervalFabric.cs" />
-    <Compile Include="intervals\dayIntervals\implementation\DayInterval.cs" />
-    <Compile Include="intervals\dayIntervals\implementation\DayIntervalFabric.cs" />
-    <Compile Include="intervals\timeInterval\implementation\TimeInterval.cs" />
-    <Compile Include="intervals\timeInterval\implementation\TimeIntervalFabric.cs" />
-    <Compile Include="intervals\timeInterval\ITimeInterval.cs" />
-    <Compile Include="intervals\timeInterval\ITimeIntervalFabric.cs" />
+    <Compile Include="EngUnit\EngUnit.cs" />
+    <Compile Include="EngUnit\EngUnitFactory.cs" />
+    <Compile Include="EngUnit\Exceptions\EngUnitNotFoundException.cs" />
+    <Compile Include="EngUnit\Exceptions\EngUnitRestrictionException.cs" />
+    <Compile Include="EngUnit\IEngUnitFactory.cs" />
+    <Compile Include="EngUnit\RestrictionCheckResult.cs" />
+    <Compile Include="EnterpriseProperties\EnterprisePropertiesFactory.cs" />
+    <Compile Include="EnterpriseProperties\EnterprisePropertyType.cs" />
+    <Compile Include="EnterpriseProperties\Exceptions\BadStateException.cs" />
+    <Compile Include="EnterpriseProperties\Exceptions\FactoryNotSetException.cs" />
+    <Compile Include="EnterpriseProperties\Exceptions\PointValueTypeException.cs" />
+    <Compile Include="EnterpriseProperties\IEnterprisePropertiesFactory.cs" />
+    <Compile Include="EnterpriseProperties\PhysicalProperty\PhysicalProperty.cs" />
+    <Compile Include="EnterpriseProperties\StateProperty\StateProperty.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="intervals\DayInterval\DayInterval.cs" />
+    <Compile Include="intervals\DayInterval\DayIntervalFactory.cs" />
+    <Compile Include="intervals\DayInterval\IDayInterval.cs" />
+    <Compile Include="intervals\DayInterval\IDayIntervalFactory.cs" />
+    <Compile Include="intervals\TimeInterval\ITimeInterval.cs" />
     <Compile Include="Logger\DefaultLogger.cs" />
     <Compile Include="Logger\IUtilityLogger.cs" />
+    <Compile Include="Point\INumericPoint.cs" />
+    <Compile Include="Point\IPoint.cs" />
+    <Compile Include="Point\IPointFactory.cs" />
+    <Compile Include="Point\IStringPoint.cs" />
+    <Compile Include="Point\Point.cs" />
+    <Compile Include="Point\PointBoundaryType.cs" />
+    <Compile Include="Point\PointRetrievalMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="realTimeData\pointElement\IPointElement.cs" />
-    <Compile Include="realTimeData\pointElement\IPointElementFabric.cs" />
-    <Compile Include="realTimeData\pointElement\PointBoundaryType.cs" />
-    <Compile Include="realTimeData\pointElement\PointRetrievalMode.cs" />
-    <Compile Include="realTimeData\pointTime\IPointTimesStampFabric.cs" />
-    <Compile Include="realTimeData\pointTime\IPointTimeStamp.cs" />
-    <Compile Include="realTimeData\pointValue\IPointValue.cs" />
-    <Compile Include="realTimeData\pointValue\IPointValueFabric.cs" />
-    <Compile Include="realTimeData\tagAbstraction\tagElement\implementation\TagElement.cs" />
-    <Compile Include="realTimeData\tagAbstraction\tagElement\ITagElement.cs" />
-    <Compile Include="realTimeData\tagAbstraction\tagValue\implementation\TagValue.cs" />
-    <Compile Include="realTimeData\tagAbstraction\tagValue\ITagValue.cs" />
+    <Compile Include="Value\Exceptions\BadPointValueException.cs" />
+    <Compile Include="Value\Exceptions\PointValueCastException.cs" />
+    <Compile Include="Value\Exceptions\ValueNotWrittenException.cs" />
+    <Compile Include="Value\IPointValue.cs" />
+    <Compile Include="Value\PointValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LoggerLib\LoggerLib.csproj">
