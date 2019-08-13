@@ -42,9 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="intervals\dayIntervals\implementation\DayIntervalFabricBasicTest.cs" />
-    <Compile Include="intervals\dayIntervals\implementation\DayIntervalFabricTestIntervalsFunctions.cs" />
-    <Compile Include="intervals\dayIntervals\implementation\DayIntervalTest.cs" />
+    <Compile Include="intervals\DayInterval\DayIntervalTests.cs" />
     <Compile Include="intervals\timeInterval\implementation\TimeIntervalTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,6 +55,9 @@
       <Project>{be19f8bd-eb4e-4fce-a0f8-dd3e7a9fed38}</Project>
       <Name>MiddlewareUtility</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="intervals\dayIntervals" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

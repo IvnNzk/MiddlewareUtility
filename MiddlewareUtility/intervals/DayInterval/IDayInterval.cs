@@ -4,6 +4,7 @@
 
     public interface IDayInterval : ITimeInterval
     {
-        TimeZoneInfo CurrentTimeZoneInfo { get; }
+        //TimeZoneInfo CurrentTimeZoneInfo { get; }
+        int Offset { get; }
     }
 }

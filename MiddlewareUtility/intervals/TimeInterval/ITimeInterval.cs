@@ -16,5 +16,11 @@
         /// Return start of time interval
         /// </summary>
         DateTime DateTimeStart { get; }
+
+        DateTimeKind Kind { get; }
+
+        ITimeInterval ToLocalTimeInterval();
+
+        ITimeInterval ToUtcTimeInterval();
     }
 }

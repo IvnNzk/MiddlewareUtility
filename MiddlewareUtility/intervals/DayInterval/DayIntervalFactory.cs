@@ -84,40 +84,5 @@
 
             return interval;
         }
-
-        public IDayInterval GetDayIntervalByUtcTime_returnLocalFormat(DateTime time)
-        {
-            if (DateTimeKind.Utc != time.Kind)
-            {
-                throw new ArgumentException("time variable must be a Utc only");
-            }
-            
-            throw new NotImplementedException("need refactor this...");
-
-            IDayInterval interval;
-            return interval;
-        }
-
-        public IDayInterval GetDayIntervalByLocalTime_returnLocalFormat(DateTime time)
-        {
-            if (DateTimeKind.Local != time.Kind)
-            {
-                throw new ArgumentException("time variable must be a Local only");
-            }
-
-            IDayInterval interval;
-            return interval;
-        }
-
-        public IDayInterval GetDayIntervalByLocalTime_returnUtcFormat(DateTime time)
-        {
-            if (DateTimeKind.Local != time.Kind)
-            {
-                throw new ArgumentException("time variable must be a Local only");
-            }
-
-            IDayInterval interval;
-            return interval;
-        }
     }
 }

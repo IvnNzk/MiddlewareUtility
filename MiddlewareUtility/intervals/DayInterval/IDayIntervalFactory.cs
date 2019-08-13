@@ -8,5 +8,6 @@
         int DayDiff { get; }
 
         IDayInterval GetDayIntervalByUtcTime(DateTime time);
+
     }
 }
