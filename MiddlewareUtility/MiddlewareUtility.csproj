@@ -63,6 +63,7 @@
     <Compile Include="intervals\DayInterval\IDayInterval.cs" />
     <Compile Include="intervals\DayInterval\IDayIntervalFactory.cs" />
     <Compile Include="intervals\TimeInterval\ITimeInterval.cs" />
+    <Compile Include="intervals\TimeInterval\TimeInterval.cs" />
     <Compile Include="Logger\DefaultLogger.cs" />
     <Compile Include="Logger\IUtilityLogger.cs" />
     <Compile Include="Point\INumericPoint.cs" />
