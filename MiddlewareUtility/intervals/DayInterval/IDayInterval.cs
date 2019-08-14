@@ -6,5 +6,6 @@
     {
         //TimeZoneInfo CurrentTimeZoneInfo { get; }
         int Offset { get; }
+        bool ValidateDayInterval { get; }
     }
 }
