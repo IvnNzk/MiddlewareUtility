@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Intervals\DayInterval\DayIntervalTests.cs" />
-    <Compile Include="Intervals\timeInterval\implementation\TimeIntervalTest.cs" />
+    <Compile Include="Intervals\timeInterval\TimeIntervalTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
