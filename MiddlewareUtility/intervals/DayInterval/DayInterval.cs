@@ -1,43 +1,34 @@
-﻿namespace MiddlewareUtility.Tools
+﻿using System.ComponentModel;
+
+namespace MiddlewareUtility.Tools
 {
     using MiddlewareUtility.Types;
     using System;
 
-    public class DayInterval : IDayInterval
+    [ImmutableObject(true)]
+    public class DayInterval : TimeInterval, IDayInterval
     {
-        private DateTime _dateEnd;
-        private DateTime _dateStart;
-        private DateTimeKind _kind;
+        public static int MaxOffset { get; } = 86399000;
+        public static int MinOffset { get; } = 0;
+
         private int _offset;
-        //private TimeZoneInfo _timeZone;
 
-        public DayInterval(DateTime dateStart, DateTime dateEnd)
+        public DayInterval(DateTime dateStart, DateTime dateEnd, int offset)
+            : base(dateStart, dateStart)
         {
-            throw new NotImplementedException("check for new ");
-            _dateStart = dateStart;
-            _dateEnd = dateEnd;
-            _kind = DateTimeKind.Unspecified;
+            throw new NotImplementedException("check for new");
+            _offset = offset;
         }
 
-        public DateTime DateTimeEnd
+        public int Offset
         {
-            get => _dateEnd;
-            private set => _dateEnd = value;
+            get => _offset;
         }
 
-        public DateTime DateTimeStart
+        public bool ValidateDayInterval
         {
-            get => _dateStart;
-            private set => _dateStart = value;
+            get { throw new NotImplementedException("startTime - endTime = 24 hours"); }
         }
-
-        public DateTimeKind Kind
-        {
-            get => _kind;
-        }
-        
-        public int Offset { get; }
-
 
         public ITimeInterval ToLocalTimeInterval()
         {
@@ -46,9 +37,9 @@
 
         public ITimeInterval ToUtcTimeInterval()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Should return new instance with kind");
         }
-        
-        public override string ToString() => $"DayInterval {_dateStart}-{_dateEnd}";
+
+        public override string ToString() => $"DayInterval {this.DateTimeStart}-{this.DateTimeEnd}";
     }
 }
