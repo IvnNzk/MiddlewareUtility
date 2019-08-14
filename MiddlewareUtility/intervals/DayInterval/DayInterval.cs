@@ -1,9 +1,8 @@
-﻿using System.ComponentModel;
-
-namespace MiddlewareUtility.Tools
+﻿namespace MiddlewareUtility.Tools
 {
-    using MiddlewareUtility.Types;
     using System;
+    using System.ComponentModel;
+    using MiddlewareUtility.Types;
 
     [ImmutableObject(true)]
     public class DayInterval : TimeInterval, IDayInterval
