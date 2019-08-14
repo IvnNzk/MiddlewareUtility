@@ -1,8 +1,11 @@
-using System;
-using MiddlewareUtility.Tools;
-
-namespace MiddlewareUtility.Types
+namespace MiddlewareUtility.Tools
 {
+    using System;
+    using System.ComponentModel;
+    using MiddlewareUtility.Tools;
+    using MiddlewareUtility.Types;
+
+    [ImmutableObject(true)]
     public class TimeInterval : ITimeInterval
     {
         private DateTime _dateEnd;
