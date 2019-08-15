@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace MiddlewareUtility.Tools
 {
     using System;
@@ -42,6 +44,30 @@ namespace MiddlewareUtility.Tools
         public ITimeInterval ToUtcTimeInterval()
         {
             throw new NotImplementedException();
+        }
+
+        protected bool Equals(TimeInterval other)
+        {
+            return _dateEnd.Equals(other._dateEnd) && _dateStart.Equals(other._dateStart) && _kind == other._kind;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((TimeInterval) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = _dateEnd.GetHashCode();
+                hashCode = (hashCode * 397) ^ _dateStart.GetHashCode();
+                hashCode = (hashCode * 397) ^ (int) _kind;
+                return hashCode;
+            }
         }
     }
 }
