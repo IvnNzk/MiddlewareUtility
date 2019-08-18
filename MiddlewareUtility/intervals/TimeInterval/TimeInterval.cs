@@ -37,7 +37,7 @@ namespace MiddlewareUtility.Tools
                 throw new ArgumentException(TimeIntervalMessages.STARTTIME_IN_UNSPECIFIED);
             if (dateEnd.Kind == DateTimeKind.Unspecified)
                 throw new ArgumentException(TimeIntervalMessages.ENDTIME_IN_UNSPECIFIED);
-            if (dateEnd.Kind == dateStart.Kind)
+            if (dateEnd.Kind != dateStart.Kind)
                 throw new ArgumentException(TimeIntervalMessages.KINDS_MUST_BE_THE_SAME);
 
             _dateStart = dateStart;
