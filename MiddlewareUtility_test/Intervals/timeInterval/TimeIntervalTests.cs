@@ -3,6 +3,7 @@ namespace MiddlewareUtility_test.Intervals.timeInterval
     using System;
     using MiddlewareUtility.Tools;
     using NUnit.Framework;
+    using MiddlewareUtility.intervals.Tools;
 
     public class TimeIntervalTests
     {
@@ -49,7 +50,8 @@ namespace MiddlewareUtility_test.Intervals.timeInterval
         {
             var startTime = new DateTime(2019, 10, 19, 3, 10, 55, 0, DateTimeKind.Utc);
             var endTime = new DateTime(2019, 10, 20, 3, 10, 55, 0, DateTimeKind.Local);
-            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime));
+            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime),
+                TimeIntervalMessages.KINDS_MUST_BE_THE_SAME);
         }
 
         [Test]
@@ -57,7 +59,8 @@ namespace MiddlewareUtility_test.Intervals.timeInterval
         {
             var startTime = new DateTime(2019, 10, 19, 3, 10, 55, 0, DateTimeKind.Local);
             var endTime = new DateTime(2019, 10, 20, 3, 10, 55, 0, DateTimeKind.Utc);
-            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime));
+            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime),
+                TimeIntervalMessages.KINDS_MUST_BE_THE_SAME);
         }
 
         // DateTime in Utc and Unspecific kind
@@ -66,7 +69,8 @@ namespace MiddlewareUtility_test.Intervals.timeInterval
         {
             var startTime = new DateTime(2019, 10, 19, 3, 10, 55, 0, DateTimeKind.Utc);
             var endTime = new DateTime(2019, 10, 20, 3, 10, 55, 0, DateTimeKind.Unspecified);
-            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime));
+            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime),
+                TimeIntervalMessages.STARTTIME_IN_UNSPECIFIED);
         }
 
         [Test]
@@ -74,7 +78,8 @@ namespace MiddlewareUtility_test.Intervals.timeInterval
         {
             var startTime = new DateTime(2019, 10, 19, 3, 10, 55, 0, DateTimeKind.Unspecified);
             var endTime = new DateTime(2019, 10, 20, 3, 10, 55, 0, DateTimeKind.Utc);
-            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime));
+            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime),
+                TimeIntervalMessages.ENDTIME_IN_UNSPECIFIED);
         }
 
         // DateTime in Local and Unspecific kind
@@ -83,7 +88,8 @@ namespace MiddlewareUtility_test.Intervals.timeInterval
         {
             var startTime = new DateTime(2019, 10, 19, 3, 10, 55, 0, DateTimeKind.Local);
             var endTime = new DateTime(2019, 10, 20, 3, 10, 55, 0, DateTimeKind.Unspecified);
-            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime));
+            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime),
+                TimeIntervalMessages.ENDTIME_IN_UNSPECIFIED);
         }
 
         [Test]
@@ -91,7 +97,8 @@ namespace MiddlewareUtility_test.Intervals.timeInterval
         {
             var startTime = new DateTime(2019, 10, 19, 3, 10, 55, 0, DateTimeKind.Unspecified);
             var endTime = new DateTime(2019, 10, 20, 3, 10, 55, 0, DateTimeKind.Local);
-            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime));
+            Assert.Throws<ArgumentException>(() => new TimeInterval(startTime, endTime),
+                TimeIntervalMessages.STARTTIME_IN_UNSPECIFIED);
         }
     }
 }
