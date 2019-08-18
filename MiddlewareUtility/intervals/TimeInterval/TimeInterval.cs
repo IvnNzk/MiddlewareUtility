@@ -1,10 +1,9 @@
-using System.Collections.Generic;
+using MiddlewareUtility.intervals.Tools;
 
 namespace MiddlewareUtility.Tools
 {
     using System;
     using System.ComponentModel;
-    using MiddlewareUtility.Tools;
     using MiddlewareUtility.Types;
 
     [ImmutableObject(true)]
@@ -33,7 +32,17 @@ namespace MiddlewareUtility.Tools
         {
             this._dateStart = dateStart;
             this._dateEnd = dateEnd;
-            throw new NotImplementedException("_kind");
+
+            if (dateStart.Kind == DateTimeKind.Unspecified)
+                throw new ArgumentException(TimeIntervalMessages.STARTTIME_IN_UNSPECIFIED);
+            if (dateEnd.Kind == DateTimeKind.Unspecified)
+                throw new ArgumentException(TimeIntervalMessages.ENDTIME_IN_UNSPECIFIED);
+            if (dateEnd.Kind == dateStart.Kind)
+                throw new ArgumentException(TimeIntervalMessages.KINDS_MUST_BE_THE_SAME);
+
+            _dateStart = dateStart;
+            _dateEnd = dateEnd;
+            _kind = dateStart.Kind;
         }
 
         public ITimeInterval ToLocalTimeInterval()
