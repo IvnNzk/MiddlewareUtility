@@ -1,5 +1,8 @@
 ﻿namespace MiddlewareUtility.Tools
 {
+    using System.ComponentModel;
+    
+    [ImmutableObject(true)]
     public class TableRow
     {
         public readonly double Index;
