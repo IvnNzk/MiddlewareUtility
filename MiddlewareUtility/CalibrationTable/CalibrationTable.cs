@@ -17,37 +17,13 @@
             _table = table;
         }
 
-        public double LeftBound
-        {
-            get
-            {
-                return _table[0].Index;
-            }
-        }
+        public double LeftBound => _table[0].Index;
 
-        public double LeftBoundValue
-        {
-            get
-            {
-                return _table[0].Value;
-            }
-        }
+        public double LeftBoundValue => _table[0].Value;
+        
+        public double RightBound => _table[_table.Count - 1].Index;
 
-        public double RightBound
-        {
-            get
-            {
-                return _table[_table.Count - 1].Index;
-            }
-        }
-
-        public double RightBoundValue
-        {
-            get
-            {
-                return _table[_table.Count - 1].Value;
-            }
-        }
+        public double RightBoundValue => _table[_table.Count - 1].Value;
 
         public double GetValue(double index)
         {
