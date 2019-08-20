@@ -42,6 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalibrationTable\TableRow\TableRowTest.cs" />
     <Compile Include="Intervals\DayInterval\DayIntervalFactoryAdvancedTestsIntervalInLocals.cs" />
     <Compile Include="Intervals\DayInterval\DayIntervalFactoryAdvancedTestsIntervalInUtc.cs" />
     <Compile Include="Intervals\DayInterval\DayIntervalFactory_tests.cs" />
