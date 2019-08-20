@@ -7,7 +7,7 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
     using MiddlewareUtility.Tools;
 
 
-    public class DayIntervalFactory_advancedTests_IntervalInLocals
+    public class DayIntervalFactoryAdvancedTestsIntervalInLocals
     {
         [TestCaseSource(typeof(OneCase))]
         public void GetDayIntervalByDate_recivedIntervalCheck(OneCase someCase)
