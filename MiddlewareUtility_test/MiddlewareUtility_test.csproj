@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Intervals\DayInterval\DayIntervalFactoryAdvancedTestsIntervalInLocals.cs" />
+    <Compile Include="Intervals\DayInterval\DayIntervalFactoryAdvancedTestsIntervalInUtc.cs" />
     <Compile Include="Intervals\DayInterval\DayIntervalFactory_tests.cs" />
     <Compile Include="Intervals\timeInterval\TimeIntervalTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

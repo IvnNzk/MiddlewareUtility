@@ -7,10 +7,10 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
     using MiddlewareUtility.Tools;
 
 
-    public class DayIntervalFactoryAdvancedTestsIntervalInLocals
+    public class DayIntervalFactoryAdvancedTestsIntervalInUtc
     {
-        [TestCaseSource(typeof(CaseLocal))]
-        public void GetDayIntervalByDate_recivedIntervalCheck(CaseLocal someCase)
+        [TestCaseSource(typeof(CaseUtc))]
+        public void GetDayIntervalByDate_recivedIntervalCheck(CaseUtc someCase)
         {
             var factory = new DayIntervalFactory();
             var returnedInterval = factory.GetDayIntervalByDate(someCase.Time, someCase.Offset);
@@ -19,7 +19,7 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
         }
     }
 
-    public class CaseLocal : IEnumerable
+    public class CaseUtc : IEnumerable
     {
         public DateTime Time { get; set; }
         public int Offset { get; set; }
@@ -32,7 +32,7 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
              */
             int offset = 18001000;
 
-            DateTime timeIntervalTimeStart = new DateTime(2019, 10, 13, 5, 0, 1, DateTimeKind.Local);
+            DateTime timeIntervalTimeStart = new DateTime(2019, 10, 13, 5, 0, 1, DateTimeKind.Utc);
             var dayInterval =
                 new TimeInterval(timeIntervalTimeStart, timeIntervalTimeStart.AddDays(1).AddSeconds(-1));
 
@@ -47,7 +47,7 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
                     break;
                 }
 
-                var newCase = new CaseLocal()
+                var newCase = new CaseUtc()
                 {
                     Time = time,
                     Offset = offset,
@@ -59,7 +59,7 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
                 yield return newCase;
             }
 
-            yield return (object)new CaseLocal()
+            yield return (object)new CaseUtc()
             {
                 Time = timeIntervalTimeStart.AddDays(1).AddSeconds(-1),
                 Offset = offset,
