@@ -9,13 +9,13 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
 
     public class DayIntervalFactory_advancedTests_IntervalInLocals
     {
-        
         [TestCaseSource(typeof(OneCase))]
-        public void GetDayIntervalByDate_recivedIntervalCheck(DateTime inputTime, int offset, TimeInterval shouldReturn)
+        public void GetDayIntervalByDate_recivedIntervalCheck(OneCase someCase)
         {
             var factory = new DayIntervalFactory();
-            var returnedInterval = factory.GetDayIntervalByDate(inputTime, offset);
-            Assert.Equals(returnedInterval, shouldReturn);
+            var returnedInterval = factory.GetDayIntervalByDate(someCase.Time, someCase.Offset);
+            Assert.AreEqual( someCase.DayInterval,returnedInterval);
+            Assert.AreEqual( someCase.DayInterval.Kind,returnedInterval.Kind);
         }
     }
 
@@ -32,11 +32,11 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
              */
             int offset = 18001000;
 
-            DateTime timeIntervalTimeStart = new DateTime(2019, 10, 13, 5, 0, 0, DateTimeKind.Local);
+            DateTime timeIntervalTimeStart = new DateTime(2019, 10, 13, 5, 0, 1, DateTimeKind.Local);
             var dayInterval =
                 new TimeInterval(timeIntervalTimeStart, timeIntervalTimeStart.AddDays(1).AddSeconds(-1));
 
-            var stepSecods = 45;
+            var stepSecods = 1000;
 
             var time = timeIntervalTimeStart;
 
@@ -56,10 +56,10 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
 
                 time = time.AddSeconds(stepSecods);
 
-                yield return (object)newCase;
+                yield return newCase;
             }
 
-            yield return (object) new OneCase()
+            yield return (object)new OneCase()
             {
                 Time = timeIntervalTimeStart.AddDays(1).AddSeconds(-1),
                 Offset = offset,
