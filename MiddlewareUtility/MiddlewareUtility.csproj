@@ -59,6 +59,7 @@
     <Compile Include="EnterpriseProperties\StateProperty\StateProperty.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="intervals\DayInterval\DayIntervalFactory.cs" />
+    <Compile Include="intervals\DayInterval\DayIntervalFactoryMessages.cs" />
     <Compile Include="intervals\DayInterval\IDayIntervalFactory.cs" />
     <Compile Include="intervals\TimeInterval\ITimeInterval.cs" />
     <Compile Include="intervals\TimeInterval\TimeInterval.cs" />
