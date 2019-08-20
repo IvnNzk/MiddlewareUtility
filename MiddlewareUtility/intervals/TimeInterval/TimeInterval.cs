@@ -30,9 +30,6 @@ namespace MiddlewareUtility.Tools
 
         public TimeInterval(DateTime dateStart, DateTime dateEnd)
         {
-            this._dateStart = dateStart;
-            this._dateEnd = dateEnd;
-
             if (dateStart.Kind == DateTimeKind.Unspecified)
                 throw new ArgumentException(TimeIntervalMessages.STARTTIME_IN_UNSPECIFIED);
             if (dateEnd.Kind == DateTimeKind.Unspecified)
