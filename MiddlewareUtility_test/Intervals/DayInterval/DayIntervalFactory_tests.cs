@@ -20,7 +20,7 @@ namespace MiddlewareUtility_test.Intervals.DayInterval
         public void MaxOffsetCheck()
         {
             var factory = new DayIntervalFactory();
-            int MaxValueShouldBe = 86399000;
+            int MaxValueShouldBe = 86398000;
             Assert.True(DayIntervalFactory.MaxOffset == MaxValueShouldBe);
         }
 
