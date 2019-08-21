@@ -1,12 +1,14 @@
 ﻿namespace MiddlewareUtility.Tools
 {
-    using MiddlewareUtility.Exceptions;
     using System;
+    using System.ComponentModel;
     using System.Collections.Generic;
-    using System.Data.SqlClient;
     using System.Globalization;
+    using MiddlewareUtility.Exceptions;
 
-    public class CalibrationTable<T> where T: TableRow
+
+    [ImmutableObject(true)]
+    public class CalibrationTable<T> where T : TableRow
     {
         private const string Separator = "\r\n";
         private const string Terminator = "";
@@ -20,7 +22,7 @@
         public double LeftBound => _table[0].Index;
 
         public double LeftBoundValue => _table[0].Value;
-        
+
         public double RightBound => _table[_table.Count - 1].Index;
 
         public double RightBoundValue => _table[_table.Count - 1].Value;
@@ -29,7 +31,8 @@
         {
             if ((index > RightBound) || (index < LeftBound))
             {
-                throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture, "Can not get value from table. Index => {0} out of table bounds.", index));
+                throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
+                    "Can not get value from table. Index => {0} out of table bounds.", index));
             }
 
             var indexFinded = _table.FindIndex((x) => x.Index == index);
@@ -43,7 +46,8 @@
             {
                 if ((_table[i - 1].Index < index) && (_table[i].Index > index))
                 {
-                    return Interpolate(_table[i - 1].Index, _table[i - 1].Value, _table[i].Index, _table[i].Value, index);
+                    return Interpolate(_table[i - 1].Index, _table[i - 1].Value, _table[i].Index, _table[i].Value,
+                        index);
                 }
             }
 
@@ -61,7 +65,8 @@
 
             foreach (var row in this._table)
             {
-                result = result + (row.Index >= 1 ? Separator : string.Empty) + row.Index + "=" + row.Value.ToString(CultureInfo.CurrentCulture).Replace(",", ".");
+                result = result + (row.Index >= 1 ? Separator : string.Empty) + row.Index + "=" +
+                         row.Value.ToString(CultureInfo.CurrentCulture).Replace(",", ".");
             }
 
             return result;
@@ -104,7 +109,8 @@
 
             if (index > RightBound)
             {
-                throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture, "Can not get value from table. Index => {0} out of table bounds.", index));
+                throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
+                    "Can not get value from table. Index => {0} out of table bounds.", index));
             }
             else if (index == RightBound)
             {
@@ -126,9 +132,11 @@
 
                     if (indexFinded == -1)
                     {
-                        throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture, "Can not get value from table. Index => {0} out of table bounds.", index));
+                        throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
+                            "Can not get value from table. Index => {0} out of table bounds.", index));
                     }
                 }
+
                 return TablePartToString(index, _table[indexFinded + 1].Index);
             }
         }
@@ -152,7 +160,8 @@
 
             if (to > RightBound)
             {
-                throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture, "Can not get value from table. Index => {0} out of table bounds.", to));
+                throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
+                    "Can not get value from table. Index => {0} out of table bounds.", to));
             }
 
             if (from < LeftBound)
@@ -178,7 +187,8 @@
 
                 if (fromIndex == -1)
                 {
-                    throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture, "Can not get value from table. Index => {0} out of table bounds.", from));
+                    throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
+                        "Can not get value from table. Index => {0} out of table bounds.", from));
                 }
             }
 
@@ -197,13 +207,15 @@
 
                 if (toIndex == -1)
                 {
-                    throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture, "Can not get value from table. Index => {0} out of table bounds.", to));
+                    throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
+                        "Can not get value from table. Index => {0} out of table bounds.", to));
                 }
             }
 
             for (i = fromIndex; i <= toIndex; i++)
             {
-                result = result + ((result != null && string.IsNullOrEmpty(result)) ? string.Empty : Separator) + i + "=" + _table[i].Value.ToString(CultureInfo.CurrentCulture).Replace(",", ".");
+                result = result + ((result != null && string.IsNullOrEmpty(result)) ? string.Empty : Separator) + i +
+                         "=" + _table[i].Value.ToString(CultureInfo.CurrentCulture).Replace(",", ".");
             }
 
             return result;
