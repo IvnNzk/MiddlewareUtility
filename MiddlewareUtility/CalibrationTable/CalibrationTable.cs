@@ -143,7 +143,7 @@
             }
         }
 
-        private double Interpolate(double prevKey, double prevVal, double nextKey, double nextVal, double thisKey)
+        private static double Interpolate(double prevKey, double prevVal, double nextKey, double nextVal, double thisKey)
         {
             return prevVal + ((thisKey - prevKey) / (nextKey - prevKey)) * (nextVal - prevVal);
         }
