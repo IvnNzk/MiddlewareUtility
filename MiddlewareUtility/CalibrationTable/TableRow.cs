@@ -8,10 +8,10 @@
         public readonly double Index;
         public readonly double Value;
 
-        public TableRow(double Index, double Value)
+        public TableRow(double index, double value)
         {
-            this.Index = Index;
-            this.Value = Value;
+            this.Index = index;
+            this.Value = value;
         }
     }
 }
