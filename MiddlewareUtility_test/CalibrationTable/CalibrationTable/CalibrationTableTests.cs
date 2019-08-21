@@ -26,11 +26,10 @@ namespace MiddlewareUtility_test.CalibrationTable.CalibrationTable
             _leftBoundIndex = 0;
             for (var i = _leftBoundIndex ; i<10; i++) {
                 rowsList.Add(new TableRow(i,curValue));
-                curValue += 0.4;
+                _rightBoundValue = curValue;
                 _rightBoundIndex = i;
+                curValue += 0.4;
             }
-
-            _rightBoundValue = curValue;
             _count = rowsList.Count;
             _table = new CalibrationTable<TableRow>(rowsList);
         }
