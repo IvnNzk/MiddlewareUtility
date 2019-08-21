@@ -12,7 +12,7 @@
 
     public static class CalibrationTableFactory
     {
-        public static CalibrationTable GetCalibrationTable(string SQLConnectionString, string CommandText)
+        public static CalibrationTable<TableRow> GetCalibrationTable(string SQLConnectionString, string CommandText)
         {
             SqlConnection connection = null;
             SqlCommand command;
@@ -40,7 +40,7 @@
                 reader = null;
                 connection = null;
 
-                return new CalibrationTable(table);
+                return new CalibrationTable<TableRow>(table);
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@
             }
         }
 
-        public static CalibrationTable GetCalibrationTable(double[] calibratingArray)
+        public static CalibrationTable<TableRow> GetCalibrationTable(double[] calibratingArray)
         {
             if (calibratingArray.Length == 0)
             {
@@ -75,7 +75,7 @@
                 table.Add(new TableRow(i, calibratingArray[i]));
             }
 
-            return new CalibrationTable(table);
+            return new CalibrationTable<TableRow>(table);
         }
     }
 }

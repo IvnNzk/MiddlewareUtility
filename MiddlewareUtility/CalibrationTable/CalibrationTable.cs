@@ -6,13 +6,13 @@
     using System.Data.SqlClient;
     using System.Globalization;
 
-    public class CalibrationTable
+    public class CalibrationTable<T> where T: TableRow
     {
-        private readonly string _separator = "\r\n";
-        private readonly string _terminator = "";
-        private List<TableRow> _table;
+        private const string Separator = "\r\n";
+        private const string Terminator = "";
+        private readonly List<T> _table;
 
-        public CalibrationTable(List<TableRow> table)
+        public CalibrationTable(List<T> table)
         {
             _table = table;
         }
@@ -25,7 +25,7 @@
 
         public double RightBoundValue => _table[_table.Count - 1].Value;
 
-        public double GetValue(double index)
+        public double GetInterpolatedValue(double index)
         {
             if ((index > RightBound) || (index < LeftBound))
             {
@@ -50,13 +50,18 @@
             throw new CalibrationTableException(String.Format("Can not find value => {0} in a table", index));
         }
 
+        public double GetValue(double index)
+        {
+            throw new NotImplementedException();
+        }
+
         public override string ToString()
         {
             string result = string.Empty;
 
             foreach (var row in this._table)
             {
-                result = result + (row.Index >= 1 ? _separator : string.Empty) + row.Index + "=" + row.Value.ToString(CultureInfo.CurrentCulture).Replace(",", ".");
+                result = result + (row.Index >= 1 ? Separator : string.Empty) + row.Index + "=" + row.Value.ToString(CultureInfo.CurrentCulture).Replace(",", ".");
             }
 
             return result;
@@ -72,7 +77,7 @@
             }
             else
             {
-                return result + _terminator;
+                return result + Terminator;
             }
         }
 
@@ -85,7 +90,7 @@
                 firstIndex = swap;
             }
 
-            return this.GetString(firstIndex) + _separator + this.GetString(secondIndex) + _terminator;
+            return this.GetString(firstIndex) + Separator + this.GetString(secondIndex) + Terminator;
         }
 
         private string GetString(double index)
@@ -198,7 +203,7 @@
 
             for (i = fromIndex; i <= toIndex; i++)
             {
-                result = result + ((result != null && string.IsNullOrEmpty(result)) ? string.Empty : _separator) + i + "=" + _table[i].Value.ToString(CultureInfo.CurrentCulture).Replace(",", ".");
+                result = result + ((result != null && string.IsNullOrEmpty(result)) ? string.Empty : Separator) + i + "=" + _table[i].Value.ToString(CultureInfo.CurrentCulture).Replace(",", ".");
             }
 
             return result;
