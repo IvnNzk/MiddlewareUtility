@@ -31,7 +31,7 @@
 
         public double GetInterpolatedValue(double index)
         {
-            if ((index > RightBound) || (index < LeftBound))
+            if ((index > RightBoundIndex) || (index < LeftBoundIndex))
             {
                 throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
                     "Can not get value from table. Index => {0} out of table bounds.", index));
@@ -104,17 +104,17 @@
         {
             int i;
 
-            if (index < LeftBound)
+            if (index < LeftBoundIndex)
             {
                 return string.Empty;
             }
 
-            if (index > RightBound)
+            if (index > RightBoundIndex)
             {
                 throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
                     "Can not get value from table. Index => {0} out of table bounds.", index));
             }
-            else if (index == RightBound)
+            else if (index == RightBoundIndex)
             {
                 return TablePartToString(_table[_table.Count - 2].Index, index);
             }
@@ -160,15 +160,15 @@
                 from = swap;
             }
 
-            if (to > RightBound)
+            if (to > RightBoundIndex)
             {
                 throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
                     "Can not get value from table. Index => {0} out of table bounds.", to));
             }
 
-            if (from < LeftBound)
+            if (from < LeftBoundIndex)
             {
-                from = LeftBound;
+                from = LeftBoundIndex;
             }
 
             int fromIndex = -1;
