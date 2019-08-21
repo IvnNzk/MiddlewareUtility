@@ -19,13 +19,15 @@
             _table = table;
         }
 
-        public double LeftBound => _table[0].Index;
+        public double LeftBoundIndex => _table[0].Index;
 
         public double LeftBoundValue => _table[0].Value;
 
-        public double RightBound => _table[_table.Count - 1].Index;
+        public double RightBoundIndex => _table[_table.Count - 1].Index;
 
         public double RightBoundValue => _table[_table.Count - 1].Value;
+
+        public int Count => _table.Count;
 
         public double GetInterpolatedValue(double index)
         {
