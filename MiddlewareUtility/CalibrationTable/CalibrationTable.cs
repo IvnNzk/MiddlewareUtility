@@ -18,20 +18,16 @@
         {
             _table = table;
         }
-
-        public double LeftBoundIndex => _table[0].Index;
-
-        public double LeftBoundValue => _table[0].Value;
-
-        public double RightBoundIndex => _table[_table.Count - 1].Index;
-
-        public double RightBoundValue => _table[_table.Count - 1].Value;
+        
+        public T LeftBoundValue => _table[0];
+        
+        public T RightBoundValue => _table[_table.Count - 1];
 
         public int Count => _table.Count;
 
         public double GetInterpolatedValue(double index)
         {
-            if ((index > RightBoundIndex) || (index < LeftBoundIndex))
+            if ((index > RightBoundValue.Index) || (index < LeftBoundValue.Index))
             {
                 throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
                     "Can not get value from table. Index => {0} out of table bounds.", index));
@@ -104,17 +100,17 @@
         {
             int i;
 
-            if (index < LeftBoundIndex)
+            if (index < LeftBoundValue.Index)
             {
                 return string.Empty;
             }
 
-            if (index > RightBoundIndex)
+            if (index > RightBoundValue.Index)
             {
                 throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
                     "Can not get value from table. Index => {0} out of table bounds.", index));
             }
-            else if (index == RightBoundIndex)
+            else if (index == RightBoundValue.Index)
             {
                 return TablePartToString(_table[_table.Count - 2].Index, index);
             }
@@ -143,7 +139,8 @@
             }
         }
 
-        private static double Interpolate(double prevKey, double prevVal, double nextKey, double nextVal, double thisKey)
+        private static double Interpolate(double prevKey, double prevVal, double nextKey, double nextVal,
+            double thisKey)
         {
             return prevVal + ((thisKey - prevKey) / (nextKey - prevKey)) * (nextVal - prevVal);
         }
@@ -160,15 +157,15 @@
                 from = swap;
             }
 
-            if (to > RightBoundIndex)
+            if (to > RightBoundValue.Index)
             {
                 throw new CalibrationTableException(string.Format(CultureInfo.CurrentCulture,
                     "Can not get value from table. Index => {0} out of table bounds.", to));
             }
 
-            if (from < LeftBoundIndex)
+            if (from < LeftBoundValue.Index)
             {
-                from = LeftBoundIndex;
+                from = LeftBoundValue.Index;
             }
 
             int fromIndex = -1;

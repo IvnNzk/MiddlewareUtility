@@ -1,3 +1,5 @@
+using System.Security.Permissions;
+
 namespace MiddlewareUtility_test.CalibrationTable.CalibrationTable
 {
     using System.Collections.Generic;
@@ -7,25 +9,28 @@ namespace MiddlewareUtility_test.CalibrationTable.CalibrationTable
     public class CalibrationTableTests
     {
         private CalibrationTable<TableRow> _table;
-        private double _rightBoundValue;
-        private double _rightBoundIndex;
-        private double _leftBoundValue;
-        private double _leftBoundIndex;
+        
+        private TableRow _leftBoundValue;
+        private TableRow _rightBoundValue;
+
+
         private int _count;
 
-        // init CalibrationTable for test;
         [SetUp]
         public void CreateCalibrationTableForTest()
         {
             var rowsList = new List<TableRow>();
             double curValue = 0;
-            _leftBoundValue = curValue;
-            _leftBoundIndex = 0;
-            for (var i = _leftBoundIndex; i < 10; i++)
+
+            for (var i = 0; i < 10; i++)
             {
-                rowsList.Add(new TableRow(i, curValue));
-                _rightBoundValue = curValue;
-                _rightBoundIndex = i;
+                var row = new TableRow(i, curValue);
+                rowsList.Add(row);
+
+                if (i == 0)
+                    _leftBoundValue = row;
+                else if (i == 9) _rightBoundValue = row;
+
                 curValue += 0.4;
             }
 
@@ -52,27 +57,15 @@ namespace MiddlewareUtility_test.CalibrationTable.CalibrationTable
         }
 
         [Test]
-        public void PropertyLeftBoundIndexTest()
-        {
-            Assert.AreEqual(_leftBoundIndex, _table.LeftBoundIndex);
-        }
-
-        [Test]
         public void PropertyLeftBoundValueTest()
         {
             Assert.AreEqual(_leftBoundValue, _table.LeftBoundValue);
         }
-
-        [Test]
-        public void PropertyRightBoundIndexTest()
-        {
-            Assert.AreEqual(_rightBoundIndex, _table.RightBoundIndex);
-        }
-
+        
         [Test]
         public void PropertyRightBoundValueTest()
         {
-            Assert.AreEqual(_rightBoundValue, _table.RightBoundValue, 0.0001);
+            Assert.AreEqual(_rightBoundValue, _table.RightBoundValue);
         }
     }
 }
