@@ -43,6 +43,7 @@
     <Compile Include="CalibrationTable\CalibrationTableFactory.cs" />
     <Compile Include="CalibrationTable\Exceptions\CalibrationTableException.cs" />
     <Compile Include="CalibrationTable\TableRow.cs" />
+    <Compile Include="CalibrationTable\TablesRetrievalMode.cs" />
     <Compile Include="EngUnit\EngUnit.cs" />
     <Compile Include="EngUnit\EngUnitFactory.cs" />
     <Compile Include="EngUnit\Exceptions\EngUnitNotFoundException.cs" />

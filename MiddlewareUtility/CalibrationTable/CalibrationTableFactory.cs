@@ -31,7 +31,7 @@
 
                 while (reader.Read())
                 {
-                    table.Add(new TableRow(reader.GetDouble(0), reader.GetDouble(1)));
+                    table.Add(new TableRow(reader.GetInt32(0), reader.GetDouble(1)));
                 }
 
                 reader.Close();

@@ -5,10 +5,10 @@
     [ImmutableObject(true)]
     public class TableRow
     {
-        public readonly double Index;
+        public readonly int Index;
         public readonly double Value;
 
-        public TableRow(double index, double value)
+        public TableRow(int index, double value)
         {
             this.Index = index;
             this.Value = value;

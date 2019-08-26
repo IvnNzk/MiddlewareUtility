@@ -1,11 +1,12 @@
-﻿namespace MiddlewareUtility.Tools
+﻿using MiddlewareUtility.Types;
+
+namespace MiddlewareUtility.Tools
 {
     using System;
     using System.ComponentModel;
     using System.Collections.Generic;
     using System.Globalization;
     using MiddlewareUtility.Exceptions;
-
 
     [ImmutableObject(true)]
     public class CalibrationTable<T> where T : TableRow
@@ -18,14 +19,14 @@
         {
             _table = table;
         }
-        
+
         public T LeftBoundValue => _table[0];
-        
+
         public T RightBoundValue => _table[_table.Count - 1];
 
         public int Count => _table.Count;
 
-        public double GetInterpolatedValue(double index)
+        public double GetInterpolatedValue(int index)
         {
             if ((index > RightBoundValue.Index) || (index < LeftBoundValue.Index))
             {
@@ -52,7 +53,7 @@
             throw new CalibrationTableException(String.Format("Can not find value => {0} in a table", index));
         }
 
-        public double GetValue(double index)
+        public double GetValue(double index,TablesRetrievalMode mode)
         {
             throw new NotImplementedException();
         }
